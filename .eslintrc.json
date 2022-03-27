@@ -1,0 +1,70 @@
+{
+  "extends": [
+    "prettier",
+    "prettier/react",
+    "prettier/@typescript-eslint",
+    "plugin:react-hooks/recommended"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "restParams": true,
+      "spread": true
+    }
+  },
+  "globals": {
+    "Element": true
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "plugins": ["import"],
+  "rules": {
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "@typescript-eslint/no-unnecessary-condition": "off",
+    "@typescript-eslint/no-magic-numbers": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "ignoreRestSiblings": true
+      }
+    ],
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "no-restricted-globals": ["error", "window", "document"],
+    "no-restricted-imports": "error",
+    "no-restricted-properties": ["error", {
+      "object": "React",
+      "property": "useLayoutEffect",
+      "message": "Prefer lib/useIsomorphicLayoutEffect"
+    }],
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "ImportDeclaration[source.value=/^\\W+(index(\\.ts)?)?$/i]",
+        "message": "Do not import index"
+      },
+      {
+        "selector": "ImportDeclaration[source.value=/\\.css$/i] ~ ImportDeclaration[source.value!=/\\.css$/i]",
+        "message": "CSS import must be last"
+      }
+    ],
+    "import/no-default-export": "error"
+  },
+  "overrides": [
+    {
+      "files": [],
+      "env": {
+        "jest": true
+      },
+      "rules": {
+        "no-restricted-properties": "off",
+        "no-restricted-globals": "off"
+      }
+    }
+  ]
+}

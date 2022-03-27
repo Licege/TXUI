@@ -1,4 +1,10 @@
 {
+  "name": "@tx/txui",
+  "description": "UI Kit for TX",
+  "version": "0.0.1",
+  "main": "dist/cjs.index.js",
+  "module": "dist/index.js",
+  "defaultSchemeId": "base",
   "devDependencies": {
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.8",
@@ -9,6 +15,13 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
+    "@testing-library/jest-dom": "^5.16.3",
+    "@testing-library/react": "^12.1.4",
+    "@testing-library/react-hooks": "^7.0.2",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/css-font-loading-module": "^0.0.7",
+    "@types/jest": "^27.4.1",
+    "@types/jest-image-snapshot": "^4.3.1",
     "@types/node": "^17.0.23",
     "@types/react": "^17.0.43",
     "@types/react-dom": "^17.0.14",
@@ -16,24 +29,40 @@
     "@typescript-eslint/eslint-plugin": "^5.16.0",
     "@typescript-eslint/parser": "^5.16.0",
     "autoprefixer": "^10.4.4",
+    "babel-jest": "^27.5.1",
     "babel-loader": "^8.2.4",
-    "babel-plugin-auto-import": "^1.1.0",
     "babel-plugin-istanbul": "^6.1.1",
-    "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-transform-remove-imports": "^1.7.0",
     "classnames": "^2.3.1",
     "clean-webpack-plugin": "^4.0.0",
+    "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "eslint": "^8.12.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jest-playwright": "^0.7.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "expect-playwright": "^0.7.2",
+    "jest": "^27.5.1",
+    "jest-image-snapshot": "^4.5.1",
+    "jest-playwright-preset": "^1.7.0",
     "mini-css-extract-plugin": "^2.6.0",
+    "playwright": "^1.20.1",
+    "playwright-chromium": "^1.20.1",
+    "playwright-core": "^1.20.1",
+    "postcss": "^8.4.12",
+    "postcss-cli": "^9.1.0",
+    "postcss-csso": "^6.0.0",
+    "postcss-custom-properties": "^12.1.5",
+    "postcss-import": "^14.1.0",
+    "postcss-loader": "^6.2.1",
+    "postcss-modules": "^4.3.1",
     "prettier": "^2.6.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "process": "^0.11.10",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "source-map-loader": "^3.0.1",
     "style-loader": "^3.3.1",
     "stylelint": "^14.6.1",
@@ -44,15 +73,22 @@
     "webpack-cli": "^4.9.2",
     "webpack-merge": "^5.8.0"
   },
-  "peerDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
-  },
   "dependencies": {
     "@babel/runtime": "^7.17.8",
     "@popperjs/core": "^2.11.4",
     "date-fns": "^2.28.0",
     "mitt": "^3.0.0",
     "react-popper": "^2.2.5"
+  },
+  "resolutions": {
+    "@types/react": "^16.14.0",
+    "@types/react-dom": "^16.14.0"
+  },
+  "peerDependencies": {
+    "react": "^16.14.0 || ^17.0.0",
+    "react-dom": "^16.14.0 || ^17.0.0"
+  },
+  "scripts": {
+    "babel": "cross-env NODE_ENV=production npm babel-base --out-dir dist/ --source-maps"
   }
 }
