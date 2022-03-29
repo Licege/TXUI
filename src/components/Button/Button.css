@@ -1,0 +1,35 @@
+.Button {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  min-height: var(--txui--size_button_small_height--compact);
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  border-radius: var(--txui--size_border_radius--regular);
+  max-width: 100%;
+}
+
+.Button-stretched {
+  display: block;
+  width: 100%;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.Button__in {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: inherit;
+  padding: 1px 16px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.Button[disabled] {
+  opacity: var(--txui--opacity_disable);
+}

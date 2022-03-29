@@ -13,6 +13,7 @@ import { usePlatform } from '../../hooks/usePlatform';
 import classNames from 'classnames';
 import { withAdaptivity } from 'hoc/withAdaptivity';
 import { ConfigProviderContext } from '../ConfigProvider/ConfigProviderContext';
+import './Button.css';
 
 export interface TXUIButtonProps extends HasAlign {
   mode?:

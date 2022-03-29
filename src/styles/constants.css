@@ -21,4 +21,9 @@
 
   --txui-font_subhead--font_size--compact: 12px;
   --txui-font_subhead--line_height--compact: 16px;
+
+  --txui--size_button_small_height--compact: 28px;
+  --txui--size_border_radius--regular: 4px;
+
+  --txui--opacity_disable: 0.64;
 }

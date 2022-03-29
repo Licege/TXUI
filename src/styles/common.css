@@ -1,0 +1,36 @@
+.txui > body {
+  overflow-x: hidden;
+}
+
+.txui,
+.txui > body,
+.txui__root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.txui,
+.txui > body,
+.txui__root,
+.txui__portal-root {
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+}
+
+.txui__root input,
+.txui__root textarea,
+.txui__root select,
+.txui__root button,
+.txui__portal-root input,
+.txui__portal-root textarea,
+.txui__portal-root select,
+.txui__portal-root button {
+  font-family: inherit;
+}
+
+.txui__root *:focus,
+.txui__portal-root *:focus {
+  outline: none;
+}
