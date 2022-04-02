@@ -4,7 +4,7 @@
   "version": "0.0.3",
   "main": "dist/cjs.index.js",
   "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
   "license": "MIT",
   "repository": "https://github.com/Licege/TXUI",
   "sideEffects": [
@@ -14,13 +14,13 @@
   ],
   "defaultSchemeId": "base",
   "devDependencies": {
-    "@babel/cli": "^7.17.6",
-    "@babel/core": "^7.17.8",
-    "@babel/parser": "^7.17.8",
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.7",
+    "@babel/parser": "^7.16.8",
     "@babel/plugin-proposal-class-properties": "^7.16.7",
-    "@babel/plugin-proposal-object-rest-spread": "^7.17.3",
-    "@babel/plugin-transform-runtime": "^7.17.0",
-    "@babel/preset-env": "^7.16.11",
+    "@babel/plugin-proposal-object-rest-spread": "^7.16.7",
+    "@babel/plugin-transform-runtime": "^7.16.8",
+    "@babel/preset-env": "^7.16.8",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
     "@testing-library/jest-dom": "^5.16.3",
@@ -31,8 +31,8 @@
     "@types/jest": "^27.4.1",
     "@types/jest-image-snapshot": "^4.3.1",
     "@types/node": "^17.0.23",
-    "@types/react": "^17.0.43",
-    "@types/react-dom": "^17.0.14",
+    "@types/react": "^16.14.20",
+    "@types/react-dom": "^16.9.14",
     "@types/webpack": "^5.28.0",
     "@typescript-eslint/eslint-plugin": "^5.16.0",
     "@typescript-eslint/parser": "^5.16.0",
@@ -70,8 +70,8 @@
     "postcss-modules": "^4.3.1",
     "prettier": "^2.6.1",
     "process": "^0.11.10",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "shx": "^0.3.4",
     "source-map-loader": "^3.0.1",
     "style-loader": "^3.3.1",
@@ -91,28 +91,31 @@
     "react-popper": "^2.2.5"
   },
   "resolutions": {
-    "@types/react": "^16.14.0",
-    "@types/react-dom": "^16.14.0"
+    "@types/react": "^16.14.20",
+    "@types/react-dom": "^16.9.14"
   },
   "peerDependencies": {
-    "react": "^16.14.0 || ^17.0.0",
-    "react-dom": "^16.14.0 || ^17.0.0"
+    "react": "^16.8.6 || ^17.0.0",
+    "react-dom": "^16.8.6 || ^17.0.0"
   },
   "scripts": {
-    "prepublishOnly": "npm run build",
-    "build": "npm run build:types && npm run build:no-types",
-    "build:types": "npm run tsc && npm run tsc-cjs && npm run tsc-cssm",
-    "build:no-types": "concurrently 'npm:babel' 'npm:babel-cssm' 'npm:babel-cjs' 'npm:postcss'",
+    "prepublishOnly": "yarn build",
+    "build": "yarn build:types && yarn build:no-types",
+    "build:types": "yarn tsc && yarn tsc-cjs && yarn tsc-cssm",
+    "build:no-types": "concurrently 'yarn:babel' 'yarn:babel-cssm' 'yarn:babel-cjs' 'yarn:postcss'",
     "babel-base": "babel src/ --extensions .tsx,.jsx,.ts,.js",
-    "babel": "cross-env NODE_ENV=production npm run babel-base --out-dir dist/ --source-maps",
-    "babel-cssm": "cross-env BABEL_KEEP_CSS=1 NODE_ENV=production npm run babel-base --out-dir dist/cssm --source-maps",
-    "babel-cjs": "cross-env NODE_ENV=production npm run babel-base --config-file ./babel.cjs.config.js --out-dir dist/cjs/ --source-maps",
+    "babel": "cross-env NODE_ENV=production yarn babel-base --out-dir dist/ --source-maps",
+    "babel-cssm": "cross-env BABEL_KEEP_CSS=1 NODE_ENV=production yarn babel-base --out-dir dist/cssm --source-maps",
+    "babel-cjs": "cross-env NODE_ENV=production yarn babel-base --config-file ./babel.cjs.config.js --out-dir dist/cjs/ --source-maps",
     "tsc": "cross-env NODE_ENV=production tsc --emitDeclarationOnly --declaration -p tsconfig.dist.json",
     "tsc-cjs": "cross-env NODE_ENV=production tsc --emitDeclarationOnly --declaration --outDir dist/cjs/ -p tsconfig.dist.json",
     "tsc-cssm": "cross-env NODE_ENV=production tsc --emitDeclarationOnly --declaration --outDir dist/cssm/ -p tsconfig.dist.json",
-    "postcss": "cross-env NODE_ENV=production concurrently 'npm:postcss-bundle' 'npm:postcss-module'",
+    "postcss": "cross-env NODE_ENV=production concurrently 'yarn:postcss-bundle' 'yarn:postcss-module'",
     "postcss-bundle": "webpack --config webpack.styles.config.js",
     "postcss-module": "postcss './src/**/*.css' --base ./src --dir ./dist/cssm",
     "clear": "shx rm -rf dist/*"
+  },
+  "engines": {
+    "yarn": ">=1.21.1 <=1.22.18"
   }
 }
