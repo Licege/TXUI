@@ -1,9 +1,15 @@
 {
-  "name": "@tx/txui",
+  "name": "trixolma-ui",
   "description": "UI Kit for TX",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "main": "dist/cjs.index.js",
   "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": [
+    "./dist/index.js",
+    "./dist/cjs/index.js",
+    "*.css"
+  ],
   "defaultSchemeId": "base",
   "devDependencies": {
     "@babel/cli": "^7.17.6",
@@ -35,6 +41,7 @@
     "babel-plugin-transform-remove-imports": "^1.7.0",
     "classnames": "^2.3.1",
     "clean-webpack-plugin": "^4.0.0",
+    "concurrently": "^7.0.0",
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.1",
     "eslint": "^8.12.0",
@@ -63,6 +70,7 @@
     "process": "^0.11.10",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "shx": "^0.3.4",
     "source-map-loader": "^3.0.1",
     "style-loader": "^3.3.1",
     "stylelint": "^14.6.1",
@@ -89,6 +97,20 @@
     "react-dom": "^16.14.0 || ^17.0.0"
   },
   "scripts": {
-    "babel": "cross-env NODE_ENV=production npm babel-base --out-dir dist/ --source-maps"
+    "prepublishOnly": "npm run build",
+    "build": "npm run build:types && npm run build:no-types",
+    "build:types": "npm run tsc && npm run tsc-cjs && npm run tsc-cssm",
+    "build:no-types": "concurrently 'npm:babel' 'npm:babel-cssm' 'npm:babel-cjs' 'npm:postcss'",
+    "babel-base": "babel src/ --extensions .tsx,.jsx,.ts,.js",
+    "babel": "cross-env NODE_ENV=production npm run babel-base --out-dir dist/ --source-maps",
+    "babel-cssm": "cross-env BABEL_KEEP_CSS=1 NODE_ENV=production npm run babel-base --out-dir dist/cssm --source-maps",
+    "babel-cjs": "cross-env NODE_ENV=production npm run babel-base --config-file ./babel.cjs.config.js --out-dir dist/cjs/ --source-maps",
+    "tsc": "cross-env NODE_ENV=production tsc --emitDeclarationOnly --declaration -p tsconfig.dist.json",
+    "tsc-cjs": "cross-env NODE_ENV=production tsc --emitDeclarationOnly --declaration --outDir dist/cjs/ -p tsconfig.dist.json",
+    "tsc-cssm": "cross-env NODE_ENV=production tsc --emitDeclarationOnly --declaration --outDir dist/cssm/ -p tsconfig.dist.json",
+    "postcss": "cross-env NODE_ENV=production concurrently 'npm:postcss-bundle' 'npm:postcss-module'",
+    "postcss-bundle": "webpack --config webpack.styles.config.js",
+    "postcss-module": "postcss './src/**/*.css' --base ./src --dir ./dist/cssm",
+    "clear": "shx rm -rf dist/*"
   }
 }
