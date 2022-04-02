@@ -23,7 +23,7 @@ const config = {
     globalObject: `typeof self !== 'undefined' ? self : this`
   },
   plugins: [
-    new webpack.ProgressPlugin({
+    new webpack.ProvidePlugin({
       process: "process/browser"
     })
   ],
