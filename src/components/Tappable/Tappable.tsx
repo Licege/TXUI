@@ -155,6 +155,7 @@ function useActivity(hasActive: boolean, stopDelay: number) {
 const Tappable: React.FC<TappableProps> = ({
   children,
   Component,
+  className,
   onClick,
   onKeyDown: _onKeyDown,
   activeEffectDelay = ACTIVE_EFFECT_DELAY,
@@ -262,6 +263,7 @@ const Tappable: React.FC<TappableProps> = ({
   }
 
   const classes = classNames(
+    className,
     getClassName('Tappable', platform),
     `Tappable--sizeX-${sizeX}`,
     {

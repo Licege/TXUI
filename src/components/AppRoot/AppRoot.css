@@ -1,0 +1,20 @@
+.txui__root--embedded {
+  transform: translate3d(0, 0, 0);
+  overflow-x: hidden;
+}
+
+.AppRoot {
+  height: 100%;
+}
+
+.txui__root--embedded .AppRoot {
+  overflow: auto;
+}
+
+.txui--sizeX-regular {
+  background: var(--txui--background_page);
+}
+
+.AppRoot--no-mouse {
+  user-select: none;
+}

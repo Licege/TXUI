@@ -30,6 +30,431 @@
   box-sizing: border-box;
 }
 
+.Button--aln-left .Button__in {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.Button--aln-right .Button__in {
+  justify-content: flex-end;
+  text-align: right;
+}
+
 .Button[disabled] {
   opacity: var(--txui--opacity_disable);
+}
+
+.Button--singleIcon.Button--sz-s .Button__in {
+  padding: 0 9px;
+}
+
+.Button--singleIcon.Button--sz-m .Button__in {
+  padding: 0 10px;
+}
+
+.Button--singleIcon.Button--sz-l .Button__in {
+  padding: 0 6px;
+}
+
+.Button--singleIcon.Button--sizeY-regular.Button--sz-s .Button__in {
+  padding: 0 9px;
+}
+
+.Button--singleIcon.Button--sizeY-regular.Button--sz-l .Button__in {
+  padding: 0 10px;
+}
+
+.Button--singleIcon .Button__before:only-child,
+.Button--singleIcon .Button__after:only-child {
+  margin: 0;
+}
+
+.Button__content {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.Button__content--caps {
+  transform: translateY(0);
+}
+
+.Button__spinner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.Button__spinner + .Button__in {
+  visibility: hidden;
+}
+
+/* Primary */
+.Button--lvl-primary.Button--crl-accent {
+  background-color: var(--txui--button_primary_background);
+}
+
+.Button--lvl-primary.Button--crl-accent.Button--hover {
+  background-color: var(--txui--button_color_background_accent--hover);
+}
+
+.Button--lvl-primary.Button--crl-accent.Button--active {
+  background-color: var(--txui--color_background_accent--active);
+}
+
+.Button--lvl-primary.Button--crl-positive {
+  background-color: var(--txui--color_background_positive);
+}
+
+.Button--lvl-primary.Button--crl-positive.Button--hover {
+  background-color: var(--txui--color_background_positive--hover);
+}
+
+.Button--lvl-primary.Button--crl-positive.Button--active {
+  background-color: var(--txui--color_background_positive--active);
+}
+
+.Button--lvl-primary.Button--crl-negative {
+  background-color: var(--txui--color_background_negative);
+}
+
+.Button--lvl-primary.Button--crl-negative.Button--hover {
+  background-color: var(--txui--color_background_negative--hover);
+}
+
+.Button--lvl-primary.Button--crl-negative.Button--active {
+  background-color: var(--txui--color_background_negative--active);
+}
+
+.Button--lvl-primary.Button--crl-neutral {
+  background-color: var(--txui--color_background_secondary);
+}
+
+.Button--lvl-primary.Button--crl-neutral.Button--hover {
+  background-color: var(--txui--color_background_secondary--hover);
+}
+
+.Button--lvl-primary.Button--crl-neutral.Button--active {
+  background-color: var(--txui--color_background_secondary--active);
+}
+
+/* Secondary */
+.Button--lvl-secondary {
+  background-color: var(--txui--color_background_secondary);
+}
+
+.Button--lvl-secondary.Button--hover {
+  background-color: var(--txui--color_background_secondary--hover);
+}
+
+.Button--lvl-secondary.Button--active {
+  background-color: var(--txui--color_background_secondary--active);
+}
+
+/* Tertiary */
+.Button--lvl-secondary,
+.Button--lvl-outline {
+  background-color: var(--txui--color_transparent);
+}
+
+.Button--lvl-tertiary.Button--hover,
+.Button--lvl-outline.Button--hover {
+  background-color: var(--txui--color_transparent--hover);
+}
+
+.Button--lvl-tertiary.Button--active,
+.Button--lvl-outline.Button--active {
+  background-color: var(--txui--color_transparent--active);
+}
+
+/* Text colors */
+.Button--lvl-primary.Button--crl-accent {
+  color: var(--txui--color_text_contrast);
+}
+
+.Button--lvl-primary.Button--clr-negative {
+  color: var(--txui--color_text_contrast);
+}
+
+.Button--lvl-primary.Button--clr-positive {
+  color: var(--txui--color_text_contrast);
+}
+
+.Button--lvl-primary.Button--clr-accent.Button--hover,
+.Button--lvl-primary.Button--clr-positive.Button--hover,
+.Button--lvl-primary.Button--clr-negative.Button--hover {
+  color: var(--txui--color_text_contrast--hover);
+}
+
+.Button--lvl-primary.Button--clr-accent.Button--active,
+.Button--lvl-primary.Button--clr-positive.Button--active,
+.Button--lvl-primary.Button--clr-negative.Button--active {
+  color: var(--txui--color_text_contrast--active);
+}
+
+/* Text colors of background-colored buttons */
+.Button--lvl-tertiary.Button--clr-accent {
+  color: var(--txui--color_text_accent);
+}
+
+.Button--lvl-secondary.Button--clr-accent {
+  color: var(--txui--color_text_accent);
+}
+
+.Button--lvl-outline.Button--clr-accent {
+  color: var(--txui--color_text_accent);
+}
+
+.Button--lvl-tertiary.Button--clr-accent.Button--hover,
+.Button--lvl-secondary.Button--clr-accent.Button--hover,
+.Button--lvl-outline.Button--clr-accent.Button--hover {
+  color: var(--txui--color_text_accent--hover);
+}
+
+.Button--lvl-tertiary.Button--clr-accent.Button--active,
+.Button--lvl-secondary.Button--clr-accent.Button--active,
+.Button--lvl-outline.Button--clr-accent.Button--active {
+  color: var(--txui--color_text_accent--active);
+}
+
+.Button--lvl-tertiary.Button--clr-positive,
+.Button--lvl-secondary.Button--clr-positive,
+.Button--lvl-outline.Button--clr-positive {
+  color: var(--txui--color_text_positive);
+}
+
+.Button--lvl-tertiary.Button--clr-positive.Button--hover,
+.Button--lvl-secondary.Button--clr-positive.Button--hover,
+.Button--lvl-outline.Button--clr-positive.Button--hover {
+  color: var(--txui--color_text_positive--hover);
+}
+
+.Button--lvl-tertiary.Button--clr-positive.Button--active,
+.Button--lvl-secondary.Button--clr-positive.Button--active,
+.Button--lvl-outline.Button--clr-positive.Button--active {
+  color: var(--txui--color_text_positive--active);
+}
+
+.Button--lvl-tertiary.Button--clr-negative,
+.Button--lvl-secondary.Button--clr-negative,
+.Button--lvl-outline.Button--clr-negative {
+  color: var(--txui--color_text_negative);
+}
+
+.Button--lvl-tertiary.Button--clr-negative.Button--hover,
+.Button--lvl-secondary.Button--clr-negative.Button--hover,
+.Button--lvl-outline.Button--clr-negative.Button--hover {
+  color: var(--txui--color_text_negative--hover);
+}
+
+.Button--lvl-tertiary.Button--clr-negative.Button--active,
+.Button--lvl-secondary.Button--clr-negative.Button--active,
+.Button--lvl-outline.Button--clr-negative.Button--active {
+  color: var(--txui--color_text_negative--active);
+}
+
+.Button--lvl-primary.Button--clr-neutral,
+.Button--lvl-secondary.Button--clr-neutral,
+.Button--lvl-tertiary.Button--clr-neutral,
+.Button--lvl-outline.Button--clr-neutral {
+  color: var(--txui--color_text_primary);
+}
+
+.Button--lvl-primary.Button--clr-neutral.Button--hover,
+.Button--lvl-secondary.Button--clr-neutral.Button--hover,
+.Button--lvl-tertiary.Button--clr-neutral.Button--hover,
+.Button--lvl-outline.Button--clr-neutral.Button--hover {
+  color: var(--txui--color_text_primary--hover);
+}
+
+.Button--lvl-primary.Button--clr-neutral.Button--active,
+.Button--lvl-secondary.Button--clr-neutral.Button--active,
+.Button--lvl-tertiary.Button--clr-neutral.Button--active,
+.Button--lvl-outline.Button--clr-neutral.Button--active {
+  color: var(--txui--color_text_primary--active);
+}
+
+/* Outline button borders */
+.Button--lvl-outline.Button--clr-accent {
+  box-shadow: inset 0 0 0 1px var(--txui--color_stroke_accent);
+}
+
+.Button--lvl-outline.Button--clr-accent.Button--hover {
+  box-shadow: inset 0 0 0 1px var(--txui--color_stroke_accent--hover);
+}
+
+.Button--lvl-outline.Button--clr-accent.Button--active {
+  box-shadow: inset 0 0 0 1px var(--txui--color_stroke_accent--active);
+}
+
+.Button--lvl-outline.Button--clr-positive {
+  box-shadow: inset 0 0 0 1px var(--txui--color_stroke_positive);
+}
+
+.Button--lvl-outline.Button--clr-positive.Button--hover {
+  box-shadow: inset 0 0 0 1px var(--txui--color_stroke_positive--hover);
+}
+
+.Button--lvl-outline.Button--clr-positive.Button--active {
+  box-shadow: inset 0 0 0 1px var(--txui--color_stroke_positive--active);
+}
+
+.Button--lvl-outline.Button--clr-negative {
+  box-shadow: inset 0 0 0 1px var(--txui--color_stroke_negative);
+}
+
+.Button--lvl-outline.Button--clr-negative.Button--hover {
+  box-shadow: inset 0 0 0 1px var(--txui--color_stroke_negative--hover);
+}
+
+.Button--lvl-outline.Button--clr-negative.Button--active {
+  box-shadow: inset 0 0 0 1px var(--txui--color_stroke_negative--active);
+}
+
+.Button--lvl-outline.Button--clr-neutral {
+  box-shadow: inset 0 0 0 1px var(--txui--color_field_border_alpha);
+}
+
+.Button--lvl-outline.Button--clr-neutral.Button--hover {
+  background-color: var(--txui--color_background_secondary--hover);
+  box-shadow: unset;
+}
+
+.Button--lvl-outline.Button--clr-neutral.Button--active {
+  background-color: var(--txui--color_background_secondary--active);
+  box-shadow: unset;
+}
+
+/*
+  Overlay colors section, separately
+  Background colors
+*/
+.Button--lvl-primary.Button--clr-overlay {
+  background-color: var(--txui--color_background_contrast);
+}
+
+.Button--lvl-primary.Button--clr-overlay.Button--hover {
+  background-color: var(--txui--color_background_contrast--hover);
+}
+
+.Button--lvl-primary.Button--clr-overlay.Button--active {
+  background-color: var(--txui--color_background_contrast--active);
+}
+
+.Button--lvl-secondary.Button--clr-overlay {
+  background-color: var(--txui--color_background_contrast_secondary_alpha);
+}
+
+.Button--lvl-secondary.Button--clr-overlay.Button--hover,
+.Button--lvl-tertiary.Button--clr-overlay.Button--hover,
+.Button--lvl-outline.Button--clr-overlay.Button--hover {
+  background-color: var(--txui--color_background_contrast_secondary_alpha--hover);
+}
+
+.Button--lvl-secondary.Button--clr-overlay.Button--active,
+.Button--lvl-tertiary.Button--clr-overlay.Button--active,
+.Button--lvl-outline.Button--clr-overlay.Button--active {
+  background-color: var(--txui--color_background_contrast_secondary_alpha--active);
+}
+
+/* Text colors */
+.Button--lvl-primary.Button--clr-overlay {
+  color: var(--txui--color_text_primary_invariably);
+}
+
+.Button--lvl-primary.Button--clr-overlay.Button--hover {
+  color: var(--txui--color_text_primary_invariably--hover);
+}
+
+.Button--lvl-primary.Button--clr-overlay.Button--active {
+  color: var(--txui--color_text_primary_invariably--active);
+}
+
+.Button--lvl-secondary.Button--clr-overlay,
+.Button--lvl-tertiary.Button--clr-overlay,
+.Button--lvl-outline.Button--clr-overlay {
+  color: var(--txui--color_text_contrast);
+}
+
+.Button--lvl-secondary.Button--clr-overlay.Button--hover,
+.Button--lvl-tertiary.Button--clr-overlay.Button--hover,
+.Button--lvl-outline.Button--clr-overlay.Button--hover {
+  color: var(--txui--color_text_contrast--hover);
+}
+
+.Button--lvl-secondary.Button--clr-overlay.Button--active,
+.Button--lvl-tertiary.Button--clr-overlay.Button--active,
+.Button--lvl-outline.Button--clr-overlay.Button--active {
+  color: var(--txui--color_text_contrast--active);
+}
+
+/* Borders */
+.Button--lvl-outline.Button--clr-overlay {
+  box-shadow: inset 0 0 0 1px var(--txui--color_stroke_contrast);
+}
+
+.Button--lvl-outline.Button--clr-overlay.Button--hover {
+  box-shadow: inset 0 0 0 1px var(--txui--color_stroke_contrast--hover);
+}
+
+.Button--lvl-outline.Button--clr-overlay.Button--active {
+  box-shadow: inset 0 0 0 1px var(--txui--color_stroke_contrast--active);
+}
+
+.Button__before:not(:last-child) {
+  margin-left: -4px;
+}
+
+.Button__before:not(:last-child) + .Button__content {
+  margin-left: 6px;
+}
+
+.Button__after:not(:first-child) {
+  margin-left: 6px;
+}
+
+.Button--sz-l .Button__before:not(:last-child) + .Button__content {
+  margin-left: 8px;
+}
+
+.Button--sz-l .Button__after:not(:first-child) {
+  margin-left: 8px;
+}
+
+.Button--sz-l .Button__in {
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.Button:not(.Button--sz-s) .Button__content {
+  transform: translateY(-1px);
+}
+
+/**
+ * sizeY COMPACT
+ */
+.Button--sz-m {
+  min-height: var(--txui--size_button_medium_height--compact);
+}
+
+.Button--sz-l {
+  min-height: var(--txui--size_button_large_height--compact);
+}
+
+/**
+ * sizeY REGULAR
+ */
+.Button--sizeY-regular {
+  min-height: var(--txui--size_button_small_height--regular);
+}
+
+.Button--sizeY-regular.Button--sz-m {
+  min-height: var(--txui--size_button_medium_height--regular);
+}
+
+.Button--sizeY-regular.Button--sz-l {
+  min-height: var(--txui--size_button_large_height--regular);
 }

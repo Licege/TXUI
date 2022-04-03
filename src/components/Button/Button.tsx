@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import { HasAlign, HasComponent } from '../../types';
 import { ANDROID, IOS, PlatformType } from '../../lib/platform';
 import { AdaptivityProps, SizeType } from '../AdaptivityProvider/AdaptivityContext';
@@ -10,8 +11,7 @@ import Subhead from '../Typography/Subhead/Subhead';
 import Caption from '../Typography/Caption/Caption';
 import Spinner from '../Spinner/Spinner';
 import { usePlatform } from '../../hooks/usePlatform';
-import classNames from 'classnames';
-import { withAdaptivity } from 'hoc/withAdaptivity';
+import { withAdaptivity } from '../../hoc/withAdaptivity';
 import { ConfigProviderContext } from '../ConfigProvider/ConfigProviderContext';
 import './Button.css';
 
@@ -30,7 +30,7 @@ export interface TXUIButtonProps extends HasAlign {
   size?: "s" | "m" | "l",
   stretched?: boolean,
   before?: React.ReactNode,
-  after: React.ReactNode,
+  after?: React.ReactNode,
   loading?: boolean
 }
 

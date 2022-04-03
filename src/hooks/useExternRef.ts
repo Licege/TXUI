@@ -1,5 +1,5 @@
 import React from 'react';
-import { setRef } from 'lib/util';
+import { setRef } from '../lib/util';
 
 export function useExternRef<T>(
   ...externRefs: Array<React.Ref<T> | undefined | false>

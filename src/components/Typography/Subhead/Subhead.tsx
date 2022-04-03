@@ -24,7 +24,9 @@ const Subhead: React.FC<SubheadProps> = ({
         `Subhead--sizeY-${sizeY}`,
         `Subhead--w-${weight}`
       )}
-    />
+    >
+      {children}
+    </Component>
   );
 };
 
