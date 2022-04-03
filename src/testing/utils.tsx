@@ -3,6 +3,11 @@ import { AdaptivityProps } from '../components/AdaptivityProvider/AdaptivityCont
 import { AdaptivityProvider } from '../components/AdaptivityProvider/AdaptivityProvider';
 import { render, RenderResult, screen } from '@testing-library/react';
 
+export function fakeTimers() {
+  beforeEach(() => jest.useFakeTimers());
+  afterEach(() => jest.useRealTimers());
+}
+
 export type ComponentTestOptions = {
   defaultProps?: any;
   forward?: boolean;
