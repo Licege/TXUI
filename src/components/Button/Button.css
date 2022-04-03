@@ -92,51 +92,51 @@
 }
 
 /* Primary */
-.Button--lvl-primary.Button--crl-accent {
+.Button--lvl-primary.Button--clr-accent {
   background-color: var(--txui--button_primary_background);
 }
 
-.Button--lvl-primary.Button--crl-accent.Button--hover {
+.Button--lvl-primary.Button--clr-accent.Button--hover {
   background-color: var(--txui--button_color_background_accent--hover);
 }
 
-.Button--lvl-primary.Button--crl-accent.Button--active {
+.Button--lvl-primary.Button--clr-accent.Button--active {
   background-color: var(--txui--color_background_accent--active);
 }
 
-.Button--lvl-primary.Button--crl-positive {
+.Button--lvl-primary.Button--clr-positive {
   background-color: var(--txui--color_background_positive);
 }
 
-.Button--lvl-primary.Button--crl-positive.Button--hover {
+.Button--lvl-primary.Button--clr-positive.Button--hover {
   background-color: var(--txui--color_background_positive--hover);
 }
 
-.Button--lvl-primary.Button--crl-positive.Button--active {
+.Button--lvl-primary.Button--clr-positive.Button--active {
   background-color: var(--txui--color_background_positive--active);
 }
 
-.Button--lvl-primary.Button--crl-negative {
+.Button--lvl-primary.Button--clr-negative {
   background-color: var(--txui--color_background_negative);
 }
 
-.Button--lvl-primary.Button--crl-negative.Button--hover {
+.Button--lvl-primary.Button--clr-negative.Button--hover {
   background-color: var(--txui--color_background_negative--hover);
 }
 
-.Button--lvl-primary.Button--crl-negative.Button--active {
+.Button--lvl-primary.Button--clr-negative.Button--active {
   background-color: var(--txui--color_background_negative--active);
 }
 
-.Button--lvl-primary.Button--crl-neutral {
+.Button--lvl-primary.Button--clr-neutral {
   background-color: var(--txui--color_background_secondary);
 }
 
-.Button--lvl-primary.Button--crl-neutral.Button--hover {
+.Button--lvl-primary.Button--clr-neutral.Button--hover {
   background-color: var(--txui--color_background_secondary--hover);
 }
 
-.Button--lvl-primary.Button--crl-neutral.Button--active {
+.Button--lvl-primary.Button--clr-neutral.Button--active {
   background-color: var(--txui--color_background_secondary--active);
 }
 
@@ -170,7 +170,7 @@
 }
 
 /* Text colors */
-.Button--lvl-primary.Button--crl-accent {
+.Button--lvl-primary.Button--clr-accent {
   color: var(--txui--color_text_contrast);
 }
 
