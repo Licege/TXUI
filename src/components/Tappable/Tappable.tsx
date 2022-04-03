@@ -27,6 +27,7 @@ export interface TappableProps
       | 'onTouchStart'
       | 'onTouchMove'
       | 'onTouchEnd'
+      | "onTouchCancel"
       | 'onMouseDown'
       | 'onMouseMove'
       | 'onMouseUp'

@@ -46,11 +46,11 @@ export function withAdaptivity<T extends AdaptivityProps>(
     } = {};
 
     config.sizeX ? (adaptivityProps.sizeX = sizeX) : undefined;
-    context.sizeY ? (adaptivityProps.sizeY = sizeY) : undefined;
-    context.viewWidth ? (adaptivityProps.viewWidth = viewWidth) : undefined;
-    context.viewHeight ? (adaptivityProps.viewHeight = viewHeight) : undefined;
-    context.hasMouse ? (adaptivityProps.hasMouse = hasMouse) : undefined;
-    context.deviceHasHover ? (adaptivityProps.deviceHasHover = deviceHasHover) : undefined;
+    config.sizeY ? (adaptivityProps.sizeY = sizeY) : undefined;
+    config.viewWidth ? (adaptivityProps.viewWidth = viewWidth) : undefined;
+    config.viewHeight ? (adaptivityProps.viewHeight = viewHeight) : undefined;
+    config.hasMouse ? (adaptivityProps.hasMouse = hasMouse) : undefined;
+    config.deviceHasHover ? (adaptivityProps.deviceHasHover = deviceHasHover) : undefined;
 
     const target = <TargetComponent {...(props as T)} {...adaptivityProps} />;
 
