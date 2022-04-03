@@ -113,7 +113,8 @@
     "postcss": "cross-env NODE_ENV=production concurrently 'yarn:postcss-bundle' 'yarn:postcss-module'",
     "postcss-bundle": "webpack --config webpack.styles.config.js",
     "postcss-module": "postcss './src/**/*.css' --base ./src --dir ./dist/cssm",
-    "clear": "shx rm -rf dist/*"
+    "clear": "shx rm -rf dist/*",
+    "test:unit": "jest --config jest.unit.config.js"
   },
   "engines": {
     "yarn": ">=1.21.1 <=1.22.18"
