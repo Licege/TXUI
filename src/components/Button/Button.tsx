@@ -166,6 +166,7 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
       onClick={loading ? undefined : onClick}
       focusVisibleMode='outside'
       className={classNames(
+        restProps.className,
         'Button',
         `Button--sz-${size}`,
         `Button--lvl-${resolvedMode}`,
