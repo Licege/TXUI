@@ -134,6 +134,7 @@ function useActivity(hasActive: boolean, stopDelay: number) {
     }
 
     activeBus.on('active', onActiveChange);
+    return () => activeBus.off('active', onActiveChange);
   }, [activity === TapState.none]);
 
   useIsomorphicLayoutEffect(() => {
