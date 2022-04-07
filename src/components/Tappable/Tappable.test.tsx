@@ -125,7 +125,7 @@ describe.only('Tappable', () => {
 
     fireEvent.keyDown(tappable(), { key: ' ', code: 'Space' });
     expect(handleClick).toHaveBeenCalledTimes(2);
-  })
+  });
 
   it('a11y(link): custom link keyboard events', () => {
     const handleClick = jest.fn();
