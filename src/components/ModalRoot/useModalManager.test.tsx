@@ -1,6 +1,6 @@
 import React from 'react';
 import { act, renderHook } from '@testing-library/react-hooks';
-import { useModalManager } from './useModalManager';
+import { modalTransitionReducer, useModalManager } from './useModalManager';
 import { noop } from '../../lib/util';
 import { fakeTimers } from '../../testing/utils';
 import { ModalType } from './types';
@@ -137,6 +137,129 @@ describe(useModalManager, () => {
         activeModal: 'm2',
         enteringModal: null,
         exitingModal: null
+      });
+    });
+  });
+
+  describe('maintains transition history', () => {
+    it('initializes with activeModal', () => {
+      const handle = renderHook(() =>
+        useModalManager('m1', <MockModal id='m1' />, noop)
+      );
+
+      expect(handle.result.current.history).toEqual(['m1']);
+    });
+
+    it('initializes empty if activeModal = null', () => {
+      const handle = renderHook(() => useModalManager(null, [], noop));
+      expect(handle.result.current.history).toEqual([]);
+    });
+
+    it('Handles transition forward', () => {
+      const { history, isBack } = modalTransitionReducer(
+        {
+          history: []
+        },
+        { type: 'setActive', id: 'm1' }
+      );
+
+      expect(history).toEqual(['m1']);
+      expect(isBack).toEqual(false);
+    });
+
+    it('Handles transition back', () => {
+      const { history, isBack } = modalTransitionReducer(
+        {
+          history: ['m1', 'm2', 'm3']
+        },
+        { type: 'setActive', id: null }
+      );
+
+      expect(history).toEqual([]);
+      expect(isBack).toBe(false);
+    });
+
+    it('resets on activeModal = null', () => {
+      const { history, isBack } = modalTransitionReducer(
+        {
+          history: ['m1', 'm2', 'm3']
+        },
+        { type: 'setActive', id: null }
+      );
+
+      expect(history).toEqual([]);
+      expect(isBack).toBe(false);
+    });
+  });
+
+  describe('ignores missing modal', () => {
+    it('on init', () => {
+      const handle = renderHook(() => useModalManager('m1', [], noop));
+      expect(handle.result.current.activeModal).toEqual(null);
+      expect(handle.result.current.history).toEqual([]);
+    });
+
+    it('on update', () => {
+      const handle = renderHook(({ id }) => useModalManager(id, [], noop), {
+        initialProps: { id: null as string | null }
+      });
+
+      handle.rerender({ id: 'm1' });
+
+      expect(handle.result.current.activeModal).toEqual(null);
+    });
+
+    it('handles dynamic modals', () => {
+      const handle = renderHook(
+        ({ id, children }) => useModalManager(id, children, noop),
+        {
+          initialProps: {
+            id: 'm1' as string | null,
+            children: [] as React.ReactNode | undefined
+          }
+        }
+      );
+
+      handle.rerender({
+        children: <MockModal id='m2' />,
+        id: 'm1'
+      });
+
+      expect(handle.result.current.getModalState('m2')).toBeTruthy();
+    });
+
+    describe('closes active modal', () => {
+      it('calls active modal onClose', () => {
+        const onClose = jest.fn();
+        const handle = renderHook(
+          () => useModalManager('m1', <MockModal id='m1' onClose={onClose} />, noop)
+        );
+
+        handle.result.current.closeActiveModal();
+        expect(onClose).toBeCalledTimes(1);
+      });
+
+      it('calls own onClose if missing modal props', () =>{
+        const onClose = jest.fn();
+        const handle = renderHook(
+          () => useModalManager('m1', <MockModal id='m1' />, onClose)
+        );
+
+        handle.result.current.closeActiveModal();
+        expect(onClose).toBeCalledTimes(1);
+      });
+
+      it('does not explode if no active modal', () => {
+        const handle = renderHook(() => useModalManager(null, [], noop));
+        expect(handle.result.current.closeActiveModal).not.toThrow();
+      });
+
+      it('does not explode if no onClose', () => {
+        const handle = renderHook(
+          () => useModalManager('m1', <MockModal id='m1' />, null as any)
+        );
+
+        expect(handle.result.current.closeActiveModal).not.toThrow();
       });
     });
   });

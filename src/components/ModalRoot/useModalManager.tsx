@@ -25,7 +25,7 @@ function getModals(children: React.ReactNode | React.ReactNode[]) {
   return React.Children.toArray(children) as React.ReactElement[];
 }
 
-function modalTransitionReducer(
+export function modalTransitionReducer(
   state: ModalTransitionState,
   action: {
     type: 'setActive' | 'entered' | 'exited' | 'inited';
